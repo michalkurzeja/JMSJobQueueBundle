@@ -330,16 +330,18 @@ class JobRepository extends EntityRepository
 
     public function findIncomingDependencies(Job $job)
     {
-        return $this->_em->createQuery("SELECT j FROM JMSJobQueueBundle:Job j LEFT JOIN j.dependencies d WHERE :job MEMBER OF j.dependencies")
-                    ->setParameter('job', $job)
-                    ->getResult();
+        return []; // Temporary fix to remove the query (we don't need it, it's EMERGENCY!)
+        //$this->_em->createQuery("SELECT j FROM JMSJobQueueBundle:Job j LEFT JOIN j.dependencies d WHERE :job MEMBER OF j.dependencies")
+        //            ->setParameter('job', $job)
+        //            ->getResult();
     }
 
     public function getIncomingDependencies(Job $job)
     {
-        return $this->_em->createQuery("SELECT j FROM JMSJobQueueBundle:Job j WHERE :job MEMBER OF j.dependencies")
-                    ->setParameter('job', $job)
-                    ->getResult();
+        return []; // Temporary fix to remove the query (we don't need it, it's EMERGENCY!)
+        //$this->_em->createQuery("SELECT j FROM JMSJobQueueBundle:Job j WHERE :job MEMBER OF j.dependencies")
+        //            ->setParameter('job', $job)
+        //            ->getResult();
     }
 
     public function findLastJobsWithError($nbJobs = 10)
